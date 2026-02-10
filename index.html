@@ -68,6 +68,7 @@
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-size: 14px;
       background:
         radial-gradient(900px 600px at 16% -10%, hsl(var(--primary) / 0.16), transparent 55%),
         radial-gradient(850px 520px at 86% 0%, hsl(var(--primary) / 0.10), transparent 62%),
@@ -245,7 +246,7 @@
       background:hsl(var(--card) / 0.78);
       border:1px solid hsl(var(--border));
       border-radius:var(--radius);
-      padding:14px;
+      padding:12px;
       box-shadow: var(--shadow-1);
       backdrop-filter: blur(10px);
       transition: transform .12s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
@@ -258,6 +259,7 @@
     .cardTitle{
       display:flex; align-items:center; gap:10px;
       font-weight:850;
+      font-size: 15px;
     }
     .cardIcon{
       width:34px;height:34px;
@@ -277,7 +279,7 @@
     }
     .row{
       display:flex; align-items:center; justify-content:space-between;
-      padding:10px 0;
+      padding:12px 0;
       border-top:1px solid hsl(var(--border));
       gap:10px;
     }
@@ -286,31 +288,58 @@
       display:flex; gap:10px; align-items:center;
       min-width:0;
     }
-    .name{font-weight:600; color:hsl(var(--card-foreground)); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .name{
+      font-weight:600;
+      font-size: 14px;
+      color:hsl(var(--card-foreground));
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
     .subnote{font-size:12px;color:hsl(var(--muted-foreground))}
     .rightRow{
       display:flex; gap:8px; align-items:center;
       flex-wrap:wrap; justify-content:flex-end;
     }
-    .chip{
-      display:inline-flex; align-items:center; gap:6px;
-      padding:7px 10px;
-      border-radius:999px;
-      font-weight:800;
-      font-size:12px;
-      border:1px solid hsl(var(--border));
-      background:hsl(var(--card));
-      cursor:pointer;
-      user-select:none;
-      transition: transform .10s ease, background .18s ease, border-color .18s ease, filter .18s ease;
+    .statusGroup{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
     }
-    .chip:hover{ filter: brightness(1.03); transform: translateY(-1px); }
-    .chip.ok{border-color:hsl(var(--ok) / 0.32); background:hsl(var(--ok) / 0.10); color:hsl(var(--ok))}
-    .chip.att{border-color:hsl(var(--att) / 0.38); background:hsl(var(--att) / 0.10); color:hsl(var(--att))}
-    .chip.rep{border-color:hsl(var(--rep) / 0.34); background:hsl(var(--rep) / 0.10); color:hsl(var(--rep))}
-    .chip.neutral{background:hsl(var(--muted) / 0.85); color:hsl(var(--foreground))}
+    .statusBtn{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      border:1px solid hsl(var(--border));
+      background: hsl(var(--card) / 0.85);
+      color: hsl(var(--muted-foreground));
+      cursor:pointer;
+      transition: transform .10s ease, filter .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+    .statusBtn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
+    .statusBtn svg{ width:16px; height:16px; display:block; }
+    .statusBtn.ok.active{
+      border-color: hsl(var(--ok) / 0.50);
+      background: hsl(var(--ok) / 0.18);
+      color: hsl(var(--ok));
+      box-shadow: 0 14px 30px hsl(var(--ok) / 0.14);
+    }
+    .statusBtn.att.active{
+      border-color: hsl(var(--att) / 0.55);
+      background: hsl(var(--att) / 0.18);
+      color: hsl(var(--att));
+      box-shadow: 0 14px 30px hsl(var(--att) / 0.14);
+    }
+    .statusBtn.rep.active{
+      border-color: hsl(var(--rep) / 0.55);
+      background: hsl(var(--rep) / 0.18);
+      color: hsl(var(--rep));
+      box-shadow: 0 14px 30px hsl(var(--rep) / 0.14);
+    }
     .btnPhoto{
-      padding:7px 10px;
+      padding:8px 12px;
       border-radius:12px;
       border:1px solid hsl(var(--border));
       background:hsl(var(--card));
@@ -506,19 +535,10 @@
       window.__t = setTimeout(() => (el.style.display = 'none'), 2500);
     };
 
-    const cycleStatus = (chip) => {
-      const txt = chip.textContent.trim().toLowerCase();
-      const set = (cls, label) => {
-        chip.className = 'chip ' + cls;
-        chip.textContent = label;
-      };
-
-      // OK -> Attention -> Needs Repair -> Not Checked -> OK ...
-      if (txt === 'ok') return set('att', 'Attention');
-      if (txt === 'attention') return set('rep', 'Needs Repair');
-      if (txt === 'needs repair') return set('neutral', 'Not Checked');
-      if (txt === 'not checked') return set('ok', 'OK');
-      return set('ok', 'OK');
+    const statusIcons = {
+      ok: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>`,
+      att: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5"/><path d="M12 16h.01"/><path d="M10.3 4.7a2 2 0 0 1 3.4 0l7 12.1A2 2 0 0 1 19 20H5a2 2 0 0 1-1.7-3.2l7-12.1z"/></svg>`,
+      rep: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>`,
     };
 
     const el = (tag, attrs = {}, children = []) => {
@@ -615,7 +635,12 @@
                 el('span', { text: 'Photos' }),
               ]));
             }
-            rightBits.push(el('span', { class: 'chip neutral', 'data-status': '1', text: 'Not Checked' }));
+            const group = el('div', { class: 'statusGroup', 'data-status-group': it.key }, [
+              el('button', { class: 'statusBtn ok', type: 'button', 'data-status-btn': 'ok', 'aria-label': 'OK', html: statusIcons.ok }),
+              el('button', { class: 'statusBtn att', type: 'button', 'data-status-btn': 'att', 'aria-label': 'Needs Attention', html: statusIcons.att }),
+              el('button', { class: 'statusBtn rep', type: 'button', 'data-status-btn': 'rep', 'aria-label': 'Needs Repair', html: statusIcons.rep }),
+            ]);
+            rightBits.push(group);
 
             const row = el('div', { class: 'row', 'data-item': it.key }, [
               el('div', { class: 'leftRow' }, leftBits),
@@ -642,16 +667,14 @@
       });
     };
 
-    const statusValue = (chip) => chip.textContent.trim().toLowerCase();
-
     const recalc = () => {
-      const chips = Array.from(document.querySelectorAll('[data-status]'));
       let ok = 0, att = 0, rep = 0;
-      chips.forEach((c) => {
-        const v = statusValue(c);
+      const rows = Array.from(document.querySelectorAll('.row[data-item]'));
+      rows.forEach((r) => {
+        const v = (r.dataset.status || '').toLowerCase();
         if (v === 'ok') ok++;
-        else if (v === 'attention') att++;
-        else if (v === 'needs repair') rep++;
+        else if (v === 'att') att++;
+        else if (v === 'rep') rep++;
       });
 
       document.getElementById('okCount').textContent = ok;
@@ -662,12 +685,12 @@
 
       document.querySelectorAll('.card[data-section]').forEach((card) => {
         const key = card.dataset.section;
-        const secChips = Array.from(card.querySelectorAll('[data-status]'));
-        secChips.forEach((c) => {
+        const secRows = Array.from(card.querySelectorAll('.row[data-item]'));
+        secRows.forEach((r) => {
           if (!sectionStats[key]) return;
           sectionStats[key].total++;
-          const v = statusValue(c);
-          if (v !== 'not checked') sectionStats[key].checked++;
+          const v = (r.dataset.status || '').toLowerCase();
+          if (v) sectionStats[key].checked++;
           if (v === 'ok') sectionStats[key].ok++;
         });
       });
@@ -695,9 +718,21 @@
     };
 
     const bindInteractions = () => {
-      document.querySelectorAll('[data-status]').forEach((chip) => {
-        chip.addEventListener('click', () => {
-          cycleStatus(chip);
+      document.querySelectorAll('[data-status-btn]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const row = btn.closest('.row[data-item]');
+          if (!row) return;
+
+          const next = btn.getAttribute('data-status-btn');
+          const current = (row.dataset.status || '').toLowerCase();
+          row.dataset.status = (current === next) ? '' : next; // click again -> clear (Not Checked)
+
+          // update active styles for the group in this row
+          row.querySelectorAll('.statusBtn').forEach((b) => {
+            const k = b.getAttribute('data-status-btn');
+            b.classList.toggle('active', (row.dataset.status || '') === k);
+          });
+
           recalc();
         });
       });
