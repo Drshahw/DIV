@@ -371,7 +371,7 @@
     }
 
     /* Notes panel (top, horizontal) */
-    .notesPanel{grid-column:1/-1}
+    .notesPanel{margin-top:14px}
     .notesPanel .cardHead{margin-bottom:10px}
     .notesLayout{
       display:grid;
@@ -467,6 +467,51 @@
       </div>
     </div>
 
+    <div class="card notesPanel" id="notesPanel">
+      <div class="cardHead">
+        <div class="cardTitle">Technician Notes</div>
+        <button class="kebab" title="More">⋯</button>
+      </div>
+
+      <div class="notesLayout">
+        <div>
+          <textarea class="textarea" id="techNotes" placeholder="Write any notes or recommendations…"></textarea>
+        </div>
+
+        <div class="notesRight">
+          <div class="row2">
+            <div>
+              <div class="fieldLabel">Urgent Safety Issues</div>
+              <select class="select" id="safety">
+                <option value="none">None</option>
+                <option value="drive_caution">Drive with Caution</option>
+                <option value="not_recommended">Not Recommended to Drive</option>
+              </select>
+            </div>
+            <div>
+              <div class="fieldLabel">Recommendation</div>
+              <select class="select" id="recommendation">
+                <option value="safe">Safe to Drive</option>
+                <option value="caution">Drive with Caution</option>
+                <option value="not">Not Recommended</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <div class="fieldLabel">Customer Summary (auto)</div>
+            <input class="input" id="customerSummary" placeholder="Auto-generated…" readonly />
+          </div>
+
+          <div class="btnRow">
+            <button class="btnSave" id="saveNotes">Save Notes</button>
+          </div>
+
+          <div class="hint">This demo is front-end only. Hook it to your API later.</div>
+        </div>
+      </div>
+    </div>
+
     <div class="tabs">
       <div class="tab active" data-tab="exterior">
         <div class="tabTop">
@@ -497,52 +542,6 @@
     </div>
 
     <div class="grid">
-      <!-- NOTES PANEL (TOP) -->
-      <div class="card notesPanel" id="notesPanel">
-        <div class="cardHead">
-          <div class="cardTitle">Technician Notes</div>
-          <button class="kebab" title="More">⋯</button>
-        </div>
-
-        <div class="notesLayout">
-          <div>
-            <textarea class="textarea" id="techNotes" placeholder="Write any notes or recommendations…"></textarea>
-          </div>
-
-          <div class="notesRight">
-            <div class="row2">
-              <div>
-                <div class="fieldLabel">Urgent Safety Issues</div>
-                <select class="select" id="safety">
-                  <option value="none">None</option>
-                  <option value="drive_caution">Drive with Caution</option>
-                  <option value="not_recommended">Not Recommended to Drive</option>
-                </select>
-              </div>
-              <div>
-                <div class="fieldLabel">Recommendation</div>
-                <select class="select" id="recommendation">
-                  <option value="safe">Safe to Drive</option>
-                  <option value="caution">Drive with Caution</option>
-                  <option value="not">Not Recommended</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <div class="fieldLabel">Customer Summary (auto)</div>
-              <input class="input" id="customerSummary" placeholder="Auto-generated…" readonly />
-            </div>
-
-            <div class="btnRow">
-              <button class="btnSave" id="saveNotes">Save Notes</button>
-            </div>
-
-            <div class="hint">This demo is front-end only. Hook it to your API later.</div>
-          </div>
-        </div>
-      </div>
-
       <!-- LEFT COLUMN -->
       <div id="col1">
         <!-- Content rendered from content-data.js -->
