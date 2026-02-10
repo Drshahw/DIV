@@ -221,7 +221,7 @@
     /* Content grid */
     .grid{
       display:grid;
-      grid-template-columns: 1fr 1fr 420px;
+      grid-template-columns: minmax(420px, 1fr) minmax(420px, 1fr) minmax(320px, 380px);
       gap:14px;
       align-items:start;
     }
@@ -259,6 +259,18 @@
       display:flex; align-items:center; gap:10px;
       font-weight:900;
     }
+    .cardIcon{
+      width:34px;height:34px;
+      border-radius:14px;
+      display:grid;place-items:center;
+      background: hsl(var(--accent) / 0.75);
+      border: 1px solid hsl(var(--border));
+      box-shadow: 0 10px 30px hsl(222 47% 2% / 0.18);
+      color: hsl(var(--foreground));
+      flex:0 0 auto;
+    }
+    .cardIcon svg{width:18px;height:18px; display:block}
+    .cardTitleText{line-height:1.05}
     .kebab{
       border:none; background:transparent; cursor:pointer;
       font-size:20px; color:hsl(var(--muted-foreground));
@@ -274,7 +286,7 @@
       display:flex; gap:10px; align-items:center;
       min-width:0;
     }
-    .name{font-weight:750; color:hsl(var(--card-foreground)); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .name{font-weight:650; color:hsl(var(--card-foreground)); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
     .subnote{font-size:12px;color:hsl(var(--muted-foreground))}
     .rightRow{
       display:flex; gap:8px; align-items:center;
@@ -523,6 +535,48 @@
       return n;
     };
 
+    const cardIconSvg = (sectionKey, title) => {
+      const t = (title || '').toLowerCase();
+      const s = (sectionKey || '').toLowerCase();
+
+      // Inline SVGs keep this page self-contained (no asset pipeline needed).
+      const icons = {
+        bolt: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 12-14h-7l1-6z"/></svg>`,
+        car: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-6a2 2 0 0 1 2-1h10a2 2 0 0 1 2 1l2 6"/><path d="M5 13h14"/><path d="M7 17a2 2 0 1 0 0 .01"/><path d="M17 17a2 2 0 1 0 0 .01"/><path d="M5 13v5a2 2 0 0 0 2 2h1"/><path d="M19 13v5a2 2 0 0 1-2 2h-1"/></svg>`,
+        droplets: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s6 7 6 12a6 6 0 0 1-12 0C6 9 12 2 12 2z"/></svg>`,
+        disc: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 3v4"/><path d="M21 12h-4"/><path d="M12 21v-4"/><path d="M3 12h4"/></svg>`,
+        fan: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 2c3 0 5 2 5 5 0 2-1 4-3 5"/><path d="M22 12c0 3-2 5-5 5-2 0-4-1-5-3"/><path d="M12 22c-3 0-5-2-5-5 0-2 1-4 3-5"/><path d="M2 12c0-3 2-5 5-5 2 0 4 1 5 3"/></svg>`,
+        gauge: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13a8 8 0 1 0-16 0"/><path d="M12 13l3-3"/><path d="M12 20h0"/></svg>`,
+        tires: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2"/><path d="M21 12h-2"/><path d="M12 21v-2"/><path d="M3 12h2"/></svg>`,
+        glass: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2h10l3 6-8 14H9L1 8l6-6z"/><path d="M7 2l5 20"/><path d="M17 2l-5 20"/></svg>`,
+        seat: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13V6a2 2 0 0 1 2-2h3"/><path d="M12 4h2a2 2 0 0 1 2 2v7"/><path d="M6 13h12l1 5H5l1-5z"/><path d="M8 18v4"/><path d="M16 18v4"/></svg>`,
+        sliders: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M2 14h4"/><path d="M10 8h4"/><path d="M18 16h4"/></svg>`,
+        screen: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></svg>`,
+        battery: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 10h6"/></svg>`,
+        exhaust: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h10"/><path d="M13 8h5a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3h-5"/><path d="M7 16v2"/><path d="M10 16v2"/></svg>`,
+        wrench: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.7 5.7l-6 6 2 2 6-6a4 4 0 0 0 5.7-5.7l-2.2 2.2-2.5-2.5 2.2-2.3z"/></svg>`,
+      };
+
+      if (t.includes('lights')) return icons.bolt;
+      if (t.includes('engine bay') || t.includes('fluids')) return icons.droplets;
+      if (t.includes('engine performance')) return icons.gauge;
+      if (t.includes('brake')) return icons.disc;
+      if (t.includes('air conditioning')) return icons.fan;
+      if (t.includes('transmission')) return icons.wrench;
+      if (t.includes('wheels') || t.includes('tires') || t.includes('tyres')) return icons.tires;
+      if (t.includes('glass') || t.includes('mirrors') || t.includes('wipers')) return icons.glass;
+      if (t.includes('seats') || t.includes('upholstery')) return icons.seat;
+      if (t.includes('dashboard') || t.includes('controls')) return icons.sliders;
+      if (t.includes('infotainment') || t.includes('electronics')) return icons.screen;
+      if (t.includes('battery') || t.includes('electrical')) return icons.battery;
+      if (t.includes('exhaust') || t.includes('emissions')) return icons.exhaust;
+
+      // Fallback by section.
+      if (s === 'exterior') return icons.car;
+      if (s === 'interior') return icons.seat;
+      return icons.wrench;
+    };
+
     const renderContent = (content) => {
       const col1 = document.getElementById('col1');
       const col2 = document.getElementById('col2');
@@ -538,7 +592,10 @@
         (sec.cards || []).forEach((card) => {
           const cardEl = el('div', { class: 'card', 'data-section': sec.key });
           const head = el('div', { class: 'cardHead' }, [
-            el('div', { class: 'cardTitle', text: card.title || 'Checklist' }),
+            el('div', { class: 'cardTitle' }, [
+              el('span', { class: 'cardIcon', html: cardIconSvg(sec.key, card.title) }),
+              el('span', { class: 'cardTitleText', text: card.title || 'Checklist' }),
+            ]),
             el('button', { class: 'kebab', title: 'More', type: 'button', text: '⋯' }),
           ]);
           cardEl.appendChild(head);
