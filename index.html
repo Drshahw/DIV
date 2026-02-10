@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CarCube — Digital Vehicle Inspection (DVI)</title>
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:#e5e7eb;
+      --shadow: 0 10px 30px rgba(2,6,23,.08);
+
+      --ok:#16a34a;
+      --att:#f59e0b;
+      --rep:#ef4444;
+
+      --brand:#0b1220;
+      --brand2:#111827;
+      --chip:#0b1220;
+
+      --radius:16px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    .wrap{max-width:1200px;margin:24px auto;padding:0 16px}
+
+    /* Top header */
+    .topbar{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:16px;
+    }
+    .job{
+      display:flex; gap:12px; align-items:center;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px;
+      background:#ede9fe; color:#5b21b6;
+      font-weight:600; font-size:12px;
+    }
+    .job h1{
+      font-size:22px; margin:0; letter-spacing:.2px;
+    }
+    .sub{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:4px;
+    }
+    .right{
+      display:flex; gap:12px; align-items:center;
+    }
+    .progressBox{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px 12px;
+      box-shadow: 0 4px 20px rgba(2,6,23,.04);
+      min-width:320px;
+    }
+    .progressTitle{font-weight:700;font-size:13px;margin-bottom:8px;color:var(--brand2)}
+    .counts{display:flex; gap:12px; flex-wrap:wrap}
+    .count{
+      display:flex; gap:8px; align-items:center;
+      font-size:12px; color:var(--muted);
+    }
+    .dot{width:10px;height:10px;border-radius:999px}
+    .btnPrimary{
+      border:none;
+      background:linear-gradient(180deg, #111827, #0b1220);
+      color:white;
+      padding:12px 14px;
+      border-radius:12px;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow: 0 12px 25px rgba(2,6,23,.15);
+      white-space:nowrap;
+    }
+    .btnPrimary:active{transform:translateY(1px)}
+    .btnGhost{
+      border:1px solid var(--line);
+      background:var(--card);
+      color:var(--brand2);
+      padding:12px 12px;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    /* Tabs */
+    .tabs{
+      display:flex; gap:10px; align-items:stretch;
+      margin:14px 0 18px;
+      flex-wrap:wrap;
+    }
+    .tab{
+      flex:1;
+      min-width:220px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px 12px 10px;
+      cursor:pointer;
+      box-shadow: 0 6px 24px rgba(2,6,23,.05);
+      position:relative;
+      overflow:hidden;
+    }
+    .tab.active{
+      outline:2px solid rgba(15,23,42,.10);
+      border-color:rgba(15,23,42,.18);
+    }
+    .tabTop{
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:8px;
+    }
+    .tabName{
+      display:flex; gap:10px; align-items:center;
+      font-weight:900; letter-spacing:.2px;
+    }
+    .icon{
+      width:32px;height:32px;border-radius:12px;
+      display:grid;place-items:center;
+      background:#eef2ff;color:#3730a3;font-weight:900;
+    }
+    .badgePct{
+      font-size:12px; font-weight:900; color:var(--muted);
+    }
+    .bar{
+      height:10px; background:#eef2f7; border-radius:999px; overflow:hidden;
+      border:1px solid #edf0f5;
+    }
+    .bar > span{display:block;height:100%; border-radius:999px; width:0%;}
+    .tabMeta{
+      display:flex; justify-content:space-between; margin-top:10px; color:var(--muted); font-size:12px;
+    }
+
+    /* Content grid */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr 420px;
+      gap:14px;
+      align-items:start;
+    }
+    @media (max-width: 1060px){
+      .grid{grid-template-columns: 1fr 1fr}
+      .notesPanel{grid-column:1/-1}
+      .progressBox{display:none}
+    }
+    @media (max-width: 720px){
+      .grid{grid-template-columns:1fr}
+      .tab{min-width:unset}
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:14px;
+      box-shadow: 0 10px 30px rgba(2,6,23,.05);
+    }
+    .cardHead{
+      display:flex; justify-content:space-between; align-items:center;
+      margin-bottom:12px;
+    }
+    .cardTitle{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900;
+    }
+    .kebab{
+      border:none; background:transparent; cursor:pointer;
+      font-size:20px; color:var(--muted);
+    }
+    .row{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 0;
+      border-top:1px solid #f0f2f6;
+      gap:10px;
+    }
+    .row:first-of-type{border-top:none}
+    .leftRow{
+      display:flex; gap:10px; align-items:center;
+      min-width:0;
+    }
+    .name{font-weight:700; color:var(--brand2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .subnote{font-size:12px;color:var(--muted)}
+    .rightRow{
+      display:flex; gap:8px; align-items:center;
+      flex-wrap:wrap; justify-content:flex-end;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:6px;
+      padding:7px 10px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+      user-select:none;
+    }
+    .chip.ok{border-color:rgba(22,163,74,.25); background:rgba(22,163,74,.08); color:var(--ok)}
+    .chip.att{border-color:rgba(245,158,11,.30); background:rgba(245,158,11,.10); color:var(--att)}
+    .chip.rep{border-color:rgba(239,68,68,.28); background:rgba(239,68,68,.10); color:var(--rep)}
+    .chip.neutral{background:#f8fafc;color:#0f172a}
+    .btnPhoto{
+      padding:7px 10px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:800;
+      cursor:pointer;
+      display:inline-flex; gap:8px; align-items:center;
+      color:var(--brand2);
+    }
+    .btnPhoto span{opacity:.9}
+    .miniBar{
+      width:120px;height:10px;border-radius:999px;background:#eef2f7;border:1px solid #edf0f5;overflow:hidden;
+    }
+    .miniBar > i{display:block;height:100%;width:60%;border-radius:999px;background:#94a3b8;}
+    .hint{
+      font-size:12px;color:var(--muted); margin-top:8px;
+    }
+
+    /* Notes panel */
+    .notesPanel{position:sticky; top:16px}
+    .textarea{
+      width:100%;
+      min-height:96px;
+      resize:vertical;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      outline:none;
+      font:inherit;
+      background:#fff;
+    }
+    .fieldLabel{font-size:12px;color:var(--muted);margin:12px 0 8px;font-weight:800}
+    .select, .input{
+      width:100%;
+      padding:11px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      font:inherit;
+      outline:none;
+    }
+    .row2{display:grid;grid-template-columns:1fr 1fr; gap:10px}
+    @media (max-width:720px){.row2{grid-template-columns:1fr}}
+    .btnRow{display:flex; gap:10px; margin-top:12px}
+    .btnSave{
+      flex:1;
+      border:none;
+      background:#0b1220;
+      color:white;
+      padding:12px 12px;
+      border-radius:14px;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .toast{
+      position:fixed;
+      right:16px; bottom:16px;
+      background:#0b1220; color:white;
+      padding:12px 14px;
+      border-radius:14px;
+      box-shadow: var(--shadow);
+      display:none;
+      max-width: 420px;
+      font-weight:700;
+      font-size:13px;
+    }
+
+    /* hidden */
+    .hidden{display:none!important}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="job">
+        <div>
+          <h1>JC-1…5607 <span class="pill">Inspection</span></h1>
+          <div class="sub">car X • DXB • Inspection for <b id="mins">14m</b></div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="progressBox" id="progressBox">
+          <div class="progressTitle">Inspection Progress</div>
+          <div class="counts">
+            <div class="count"><span class="dot" style="background:var(--ok)"></span><b id="okCount">0</b> Items OK</div>
+            <div class="count"><span class="dot" style="background:var(--att)"></span><b id="attCount">0</b> Need Attention</div>
+            <div class="count"><span class="dot" style="background:var(--rep)"></span><b id="repCount">0</b> Urgent Repairs</div>
+          </div>
+        </div>
+        <button class="btnPrimary" id="submitBtn">Submit Inspection</button>
+        <button class="btnGhost" id="saveBtn">Save</button>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active" data-tab="exterior">
+        <div class="tabTop">
+          <div class="tabName"><span class="icon">E</span> Exterior</div>
+          <div class="badgePct"><span id="exPct">0%</span></div>
+        </div>
+        <div class="bar"><span id="exBar"></span></div>
+        <div class="tabMeta"><span><b id="exOk">0</b> items OK</span><span>Complete</span></div>
+      </div>
+
+      <div class="tab" data-tab="interior">
+        <div class="tabTop">
+          <div class="tabName"><span class="icon" style="background:#fef3c7;color:#92400e">I</span> Interior</div>
+          <div class="badgePct"><span id="inPct">0%</span></div>
+        </div>
+        <div class="bar"><span id="inBar"></span></div>
+        <div class="tabMeta"><span><b id="inOk">0</b> items OK</span><span>Complete</span></div>
+      </div>
+
+      <div class="tab" data-tab="mechanical">
+        <div class="tabTop">
+          <div class="tabName"><span class="icon" style="background:#e0e7ff;color:#1d4ed8">M</span> Mechanical</div>
+          <div class="badgePct"><span id="mePct">0%</span></div>
+        </div>
+        <div class="bar"><span id="meBar"></span></div>
+        <div class="tabMeta"><span><b id="meOk">0</b> items OK</span><span>Complete</span></div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- LEFT COLUMN -->
+      <div id="col1">
+        <div class="card" data-section="mechanical">
+          <div class="cardHead">
+            <div class="cardTitle">Engine Bay — Fluids</div>
+            <button class="kebab" title="More">⋯</button>
+          </div>
+
+          <div class="row" data-item="engine_oil">
+            <div class="leftRow">
+              <div>
+                <div class="name">Engine Oil</div>
+                <div class="subnote">Level + condition</div>
+              </div>
+            </div>
+            <div class="rightRow">
+              <button class="btnPhoto" data-photo="engine_oil">📷 <span>Photos</span></button>
+              <span class="chip ok" data-status>OK</span>
+            </div>
+          </div>
+
+          <div class="row" data-item="coolant">
+            <div class="leftRow">
+              <div>
+                <div class="name">Coolant</div>
+                <div class="subnote">Level</div>
+              </div>
+            </div>
+            <div class="rightRow">
+              <button class="btnPhoto" data-photo="coolant">📷 <span>Photos</span></button>
+              <span class="chip ok" data-status>OK</span>
+            </div>
+          </div>
+
+          <div class="row" data-item="brake_fluid">
+            <div class="leftRow">
+              <div>
+                <div class="name">Brake Fluid</div>
+                <div class="subnote">Level</div>
+              </div>
+            </div>
+            <div class="rightRow">
+              <button class="btnPhoto" data-photo="brake_fluid">📷 <span>Photos</span></button>
+              <span class="chip ok" data-status>OK</span>
+            </div>
+          </div>
+
+          <div class="row" data-item="washer">
+            <div class="leftRow">
+              <div>
+                <div class="name">Washer Fluid</div>
+                <div class="subnote">Level</div>
+              </div>
+            </div>
+            <div class="rightRow">
+              <button class="btnPhoto" data-photo="washer">📷 <span>Photos</span></button>
+              <span class="chip ok" data-status>OK</span>
+            </div>
+          </div>
+
+          <div class="hint">Tip: click status chip to change (OK → Attention → Repair)</div>
+        </div>
+
+        <div class="card" data-section="mechanical" style="margin-top:14px">
+          <div class="cardHead">
+            <div class="cardTitle">Brakes</div>
+            <button class="kebab" title="More">⋯</button>
+          </div>
+
+          <div class="row" data-item="front_pads">
+            <div class="leftRow">
+              <div>
+                <div class="name">Front Brake Pads</div>
+                <div class="subnote">Remaining life</div>
+              </div>
+            </div>
+            <div class="rightRow">
+              <div class="miniBar" title="Remaining life"><i id="frontPadsBar"></i></div>
+              <span class="chip att" data-status>Attention</span>
+              <button class="btnPhoto" data-photo="front_pads">📷 <span>Photos</span></button>
+            </div>
+          </div>
+
+          <div class="row" data-item="rear_pads">
+            <div class="leftRow">
+              <div>
+                <div class="name">Rear Brake Pads</div>
+                <div class="subnote">Remaining life</div>
+              </div>
+            </div>
+            <div class="rightRow">
+              <span class="chip ok" data-status>OK</span>
+              <button class="btnPhoto" data-photo="rear_pads">📷 <span>Photos</span></button>
+            </div>
+          </div>
+
+          <div class="row" data-item="brake_noise">
+            <div class="leftRow">
+              <div>
+                <div class="name">Brake Noise</div>
+                <div class="subnote">Any abnormal sound</div>
+              </div>
+            </div>
+            <div class="rightRow">
+              <span class="chip ok" data-status>OK</span>
+              <button class="btnPhoto" data-photo="brake_noise">📷 <span>Photos</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MIDDLE COLUMN -->
+      <div id="col2">
+        <div class="card" data-section="mechanical">
+          <div class="cardHead">
+            <div class="cardTitle">Air Conditioning System (Mechanical)</div>
+            <button class="kebab" title="More">⋯</button>
+          </div>
+
+          <div class="row" data-item="ac_cooling">
+            <div class="leftRow">
+              <div>
+                <div class="name">Cooling Performance</div>
+                <div class="subnote">Cold / Weak / Not cooling</div>
+              </div>
+            </div>
+            <div class="rightRow">
+              <span class="chip att" data-status>Attention</span>
+              <button class="btnPhoto" data-photo="ac_cooling">📷 <span>Photos</span></button>
+            </div>
+          </div>
+
+          <div class="row" data-item="ac_compressor">
+            <div class="leftRow">
+              <div>
+                <div class="name">Compressor</div>
+                <div class="subnote">Engagement + noise</div>
+              </div>
+            </div>
+            <div class="rightRow">
+              <span class="chip ok" data-status>OK</span>
+              <button class="btnPhoto" data-photo="ac_compressor">📷 <span>Photos</span></button>
+            </div>
+          </div>
+
+          <div class="row" data-item="ac_pressure">
+            <div class="leftRow">
+              <div>
+                <div class="name">Gas Pressure</div>
+                <div class="subnote">OK / Low / Needs check</div>
+              </div>
+            </div>
+            <div class="rightRow">
+              <span class="chip rep" data-status>Needs Repair</span>
+              <button class="btnPhoto" data-photo="ac_pressure">📷 <span>Photos</span></button>
+            </div>
+          </div>
+
+          <div class="row" data-item="ac_notes_inline">
+            <div class="leftRow">
+              <div>
+                <div class="name">Quick Note</div>
+                <div class="subnote">Short tech note for AC</div>
+              </div>
+            </div>
+            <div class="rightRow" style="flex:1">
+              <input class="input" placeholder="e.g., Needs recharge / suspected leak" id="acInlineNote" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-section="exterior" style="margin-top:14px">
+          <div class="cardHead">
+            <div class="cardTitle">Exterior — Lights</div>
+            <button class="kebab" title="More">⋯</button>
+          </div>
+
+          <div class="row" data-item="headlights">
+            <div class="leftRow"><div class="name">Headlights</div></div>
+            <div class="rightRow">
+              <span class="chip ok" data-status>OK</span>
+              <button class="btnPhoto" data-photo="headlights">📷 <span>Photos</span></button>
+            </div>
+          </div>
+
+          <div class="row" data-item="brake_lights">
+            <div class="leftRow"><div class="name">Brake Lights</div></div>
+            <div class="rightRow">
+              <span class="chip ok" data-status>OK</span>
+              <button class="btnPhoto" data-photo="brake_lights">📷 <span>Photos</span></button>
+            </div>
+          </div>
+
+          <div class="row" data-item="indicators">
+            <div class="leftRow"><div class="name">Indicators (L/R)</div></div>
+            <div class="rightRow">
+              <span class="chip ok" data-status>OK</span>
+              <button class="btnPhoto" data-photo="indicators">📷 <span>Photos</span></button>
+            </div>
+          </div>
+
+          <div class="row" data-item="fog_lights">
+            <div class="leftRow"><div class="name">Fog Lights</div></div>
+            <div class="rightRow">
+              <span class="chip neutral" data-status>Not Checked</span>
+              <button class="btnPhoto" data-photo="fog_lights">📷 <span>Photos</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTES PANEL -->
+      <div class="card notesPanel" id="notesPanel">
+        <div class="cardHead">
+          <div class="cardTitle">Technician Notes</div>
+          <button class="kebab" title="More">⋯</button>
+        </div>
+
+        <textarea class="textarea" id="techNotes" placeholder="Write any notes or recommendations…"></textarea>
+
+        <div class="row2">
+          <div>
+            <div class="fieldLabel">Urgent Safety Issues</div>
+            <select class="select" id="safety">
+              <option value="none">None</option>
+              <option value="drive_caution">Drive with Caution</option>
+              <option value="not_recommended">Not Recommended to Drive</option>
+            </select>
+          </div>
+          <div>
+            <div class="fieldLabel">Recommendation</div>
+            <select class="select" id="recommendation">
+              <option value="safe">Safe to Drive</option>
+              <option value="caution">Drive with Caution</option>
+              <option value="not">Not Recommended</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fieldLabel">Customer Summary (auto)</div>
+        <input class="input" id="customerSummary" placeholder="Auto-generated…" readonly />
+
+        <div class="btnRow">
+          <button class="btnSave" id="saveNotes">Save Notes</button>
+        </div>
+
+        <div class="hint">This demo is front-end only. Hook it to your API later.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Helpers
+    const toast = (msg) => {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.style.display = 'block';
+      clearTimeout(window.__t);
+      window.__t = setTimeout(()=> el.style.display='none', 2500);
+    };
+
+    // status cycle: OK -> Attention -> Needs Repair -> Not Checked -> OK ...
+    const cycle = (chip) => {
+      const txt = chip.textContent.trim().toLowerCase();
+      const set = (cls, label) => {
+        chip.className = 'chip ' + cls;
+        chip.textContent = label;
+      };
+
+      if (txt === 'ok') return set('att', 'Attention');
+      if (txt === 'attention') return set('rep', 'Needs Repair');
+      if (txt === 'needs repair') return set('neutral', 'Not Checked');
+      if (txt === 'not checked') return set('ok', 'OK');
+      // fallback
+      return set('ok', 'OK');
+    };
+
+    // ---- Bind status chips
+    document.querySelectorAll('[data-status]').forEach(chip => {
+      chip.addEventListener('click', () => {
+        cycle(chip);
+        recalc();
+      });
+    });
+
+    // ---- Photos demo
+    document.querySelectorAll('[data-photo]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        toast('Photos modal placeholder — connect to upload/gallery later.');
+      });
+    });
+
+    // ---- Tabs show/hide sections
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('[data-section]');
+    const showTab = (key) => {
+      tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === key));
+      sections.forEach(s => s.classList.toggle('hidden', s.dataset.section !== key));
+    };
+    tabs.forEach(t => t.addEventListener('click', () => showTab(t.dataset.tab)));
+
+    // ---- Demo: front pads bar
+    const setPadPct = (pct) => {
+      const bar = document.getElementById('frontPadsBar');
+      bar.style.width = Math.max(0, Math.min(100, pct)) + '%';
+      bar.style.background = pct <= 25 ? 'var(--rep)' : (pct <= 50 ? 'var(--att)' : '#94a3b8');
+    };
+    setPadPct(20);
+
+    // ---- Notes actions
+    document.getElementById('saveNotes').addEventListener('click', () => {
+      toast('Notes saved (demo).');
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      toast('Submitted (demo). You can validate “Not Checked” items before submit.');
+    });
+
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      toast('Saved (demo).');
+    });
+
+    // ---- Recalc counters & tab completion
+    const statusValue = (chip) => chip.textContent.trim().toLowerCase();
+
+    const recalc = () => {
+      const chips = Array.from(document.querySelectorAll('[data-status]'));
+
+      let ok=0, att=0, rep=0, checked=0;
+      chips.forEach(c=>{
+        const v = statusValue(c);
+        if (v === 'ok') { ok++; checked++; }
+        else if (v === 'attention') { att++; checked++; }
+        else if (v === 'needs repair') { rep++; checked++; }
+        else if (v === 'not checked') { /* ignore */ }
+        else { /* ignore */ }
+      });
+
+      document.getElementById('okCount').textContent = ok;
+      document.getElementById('attCount').textContent = att;
+      document.getElementById('repCount').textContent = rep;
+
+      // per-section completion
+      const sectionStats = { exterior:{ok:0,total:0,checked:0},
+                             interior:{ok:0,total:0,checked:0},
+                             mechanical:{ok:0,total:0,checked:0} };
+
+      sections.forEach(sec=>{
+        const key = sec.dataset.section;
+        const secChips = Array.from(sec.querySelectorAll('[data-status]'));
+        secChips.forEach(c=>{
+          sectionStats[key].total++;
+          const v = statusValue(c);
+          if (v !== 'not checked') sectionStats[key].checked++;
+          if (v === 'ok') sectionStats[key].ok++;
+        });
+      });
+
+      const setTab = (key, pctEl, barEl, okEl) => {
+        const st = sectionStats[key];
+        const pct = st.total ? Math.round((st.checked / st.total) * 100) : 0;
+        document.getElementById(pctEl).textContent = pct + '%';
+        document.getElementById(okEl).textContent = st.ok;
+
+        const bar = document.getElementById(barEl);
+        bar.style.width = pct + '%';
+        bar.style.background = pct >= 90 ? 'var(--ok)' : (pct >= 50 ? 'var(--att)' : '#94a3b8');
+      };
+
+      setTab('exterior','exPct','exBar','exOk');
+      setTab('interior','inPct','inBar','inOk');
+      setTab('mechanical','mePct','meBar','meOk');
+
+      // Auto customer summary
+      const summary = [];
+      if (rep) summary.push(`${rep} urgent repair`);
+      if (att) summary.push(`${att} need attention`);
+      if (!rep && !att) summary.push('All items OK');
+      document.getElementById('customerSummary').value = summary.join(' • ');
+    };
+
+    recalc();
+
+    // show default tab (mechanical as in your screenshot)
+    showTab('mechanical');
+  </script>
+</body>
+</html>
