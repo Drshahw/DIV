@@ -370,6 +370,28 @@
       font-size:12px;color:hsl(var(--muted-foreground)); margin-top:8px;
     }
 
+    .cardNote{
+      margin: 8px 0 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid hsl(var(--border));
+      background: linear-gradient(180deg, hsl(var(--card) / 0.55), hsl(var(--card) / 0.35));
+      color: hsl(var(--muted-foreground));
+      font-size: 12px;
+      font-weight: 650;
+      line-height: 1.35;
+    }
+    .cardNote.warn{
+      border-color: hsl(var(--att) / 0.45);
+      background: linear-gradient(180deg, hsl(var(--att) / 0.14), hsl(var(--card) / 0.35));
+      color: hsl(var(--foreground));
+    }
+    .cardNote.pin{
+      border-color: hsl(var(--ring) / 0.35);
+      background: linear-gradient(180deg, hsl(var(--ring) / 0.10), hsl(var(--card) / 0.35));
+      color: hsl(var(--foreground));
+    }
+
     /* Notes panel (top, horizontal) */
     .notesPanel{margin-top:14px}
     .notesPanel .cardHead{margin-bottom:10px}
@@ -655,6 +677,15 @@
           ]);
           cardEl.appendChild(head);
 
+          if (card.note) {
+            const note = String(card.note);
+            const cls =
+              note.trim().startsWith('⚠️') ? 'cardNote warn' :
+              note.trim().startsWith('📌') ? 'cardNote pin' :
+              'cardNote';
+            cardEl.appendChild(el('div', { class: cls, text: note }));
+          }
+
           (card.items || []).forEach((it) => {
             const leftBits = [];
             const nameWrap = el('div', {}, [
@@ -688,7 +719,7 @@
             cardEl.appendChild(row);
           });
 
-          if (card.note) cardEl.appendChild(el('div', { class: 'hint', text: card.note }));
+          // Keep .hint for future generic tips; card.note is shown as a callout above.
 
           (flip ? col2 : col1).appendChild(cardEl);
           flip = !flip;
