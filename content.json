@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-02-10T19:20:43",
+    "generatedAt": "2026-02-10T19:28:51",
     "source": "content.md"
   },
   "sections": [
@@ -426,7 +426,7 @@
         },
         {
           "title": "Air Conditioning (User Experience only)",
-          "note": "⚠️ فنی نیست – فقط تجربه داخل کابین",
+          "note": "",
           "items": [
             {
               "key": "ac_cooling_feeling_cold_weak",
@@ -733,7 +733,7 @@
         },
         {
           "title": "Air Conditioning – Mechanical (خیلی مهم)",
-          "note": "📌 این همون چیزی‌ه که گفتی باید فنی باشه",
+          "note": "",
           "items": [
             {
               "key": "cooling_performance_measured_actual",

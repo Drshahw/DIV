@@ -397,14 +397,19 @@
     .notesPanel .cardHead{margin-bottom:10px}
     .notesLayout{
       display:grid;
-      grid-template-columns: minmax(320px, 1.2fr) minmax(280px, 1fr);
-      gap:12px;
-      align-items:start;
+      grid-template-columns: minmax(360px, 1.2fr) minmax(320px, 1fr);
+      gap:16px;
+      align-items:stretch;
     }
-    .notesRight{
+    .notesLayout > div:first-child{
       display:flex;
       flex-direction:column;
-      gap:10px;
+      min-width:0;
+    }
+    .notesRight{
+      display:grid;
+      grid-template-rows: auto auto auto 1fr;
+      gap:12px;
       min-width:0;
     }
     @media (max-width: 1060px){
@@ -412,7 +417,8 @@
     }
     .textarea{
       width:100%;
-      min-height:120px;
+      min-height:160px;
+      height:100%;
       resize:vertical;
       padding:12px;
       border-radius:14px;
@@ -421,10 +427,17 @@
       font:inherit;
       background:hsl(var(--card));
     }
-    .fieldLabel{font-size:12px;color:hsl(var(--muted-foreground));margin:12px 0 8px;font-weight:700}
+    .fieldLabel{
+      font-size:11.5px;
+      color:hsl(var(--muted-foreground));
+      margin:8px 0 6px;
+      font-weight:700;
+      letter-spacing:.18px;
+    }
     .select, .input{
       width:100%;
-      padding:11px 12px;
+      height:42px;
+      padding:0 12px;
       border-radius:14px;
       border:1px solid hsl(var(--input));
       background:hsl(var(--card));
@@ -433,7 +446,7 @@
     }
     .row2{display:grid;grid-template-columns:1fr 1fr; gap:10px}
     @media (max-width:720px){.row2{grid-template-columns:1fr}}
-    .btnRow{display:flex; gap:10px; margin-top:12px}
+    .btnRow{display:flex; gap:10px; margin-top:0}
     .btnSave{
       flex:1;
       border:none;

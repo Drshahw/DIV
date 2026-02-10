@@ -145,8 +145,6 @@ Car Keys
 
 🔹 Air Conditioning (User Experience only)
 
-⚠️ فنی نیست – فقط تجربه داخل کابین
-
 AC Cooling Feeling (Cold / Weak)
 
 Front AC Vents Airflow
@@ -250,8 +248,6 @@ Alignment Pull (Left / Right)
 Steering Rack
 
 🔹 Air Conditioning – Mechanical (خیلی مهم)
-
-📌 این همون چیزی‌ه که گفتی باید فنی باشه
 
 Cooling Performance (Measured / Actual)
 
