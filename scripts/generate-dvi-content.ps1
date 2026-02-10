@@ -51,23 +51,23 @@ function Ensure-Card([string]$title) {
     note = ""
     items = @()
   }
-  $script:currentSection.cards += $script:currentCard
+  $script:currentSection['cards'] += $script:currentCard
 }
 
 foreach ($raw in $lines) {
   $line = ($raw ?? "").Trim()
   if ($line -eq "") { continue }
 
-  # Section headers (emoji numbers optional)
-  if ($line -match "(?i)\bEXTERIOR\b") {
+  # Section headers (match only header lines; avoid matching words inside item text)
+  if ($line -match "(?i)^.*\bEXTERIOR\b\s*$") {
     Ensure-Section -key "exterior" -title "Exterior"
     continue
   }
-  if ($line -match "(?i)\bINTERIOR\b") {
+  if ($line -match "(?i)^.*\bINTERIOR\b\s*$") {
     Ensure-Section -key "interior" -title "Interior"
     continue
   }
-  if ($line -match "(?i)\bMECHANICAL\b") {
+  if ($line -match "(?i)^.*\bMECHANICAL\b\s*$") {
     Ensure-Section -key "mechanical" -title "Mechanical"
     continue
   }
@@ -83,11 +83,11 @@ foreach ($raw in $lines) {
   # Notes / hints
   if ($line.StartsWith("تمرکز:") -or $line.StartsWith("⚠️") -or $line.StartsWith("📌")) {
     if ($null -ne $script:currentCard -and ($line.StartsWith("⚠️") -or $line.StartsWith("📌"))) {
-      if ([string]::IsNullOrWhiteSpace($script:currentCard.note)) { $script:currentCard.note = $line }
-      else { $script:currentCard.note += " " + $line }
+      if ([string]::IsNullOrWhiteSpace($script:currentCard['note'])) { $script:currentCard['note'] = $line }
+      else { $script:currentCard['note'] += " " + $line }
     } elseif ($null -ne $script:currentSection -and $line.StartsWith("تمرکز:")) {
-      if ([string]::IsNullOrWhiteSpace($script:currentSection.description)) { $script:currentSection.description = $line }
-      else { $script:currentSection.description += " " + $line }
+      if ([string]::IsNullOrWhiteSpace($script:currentSection['description'])) { $script:currentSection['description'] = $line }
+      else { $script:currentSection['description'] += " " + $line }
     }
     continue
   }
@@ -98,6 +98,9 @@ foreach ($raw in $lines) {
   if ($null -eq $script:currentCard) {
     # If items appear before any card, create a default one.
     Ensure-Card -title "Checklist"
+    if ($null -eq $script:currentCard) {
+      throw "No current section/card for item line: $line"
+    }
   }
 
   # Parse "Name (Subnote)" if present.
@@ -121,7 +124,7 @@ foreach ($raw in $lines) {
   # If it explicitly says "if applicable", it's usually still checkable but photo optional.
   if ($line -match "(?i)if applicable") { $item.photo = $false }
 
-  $script:currentCard.items += $item
+  $script:currentCard['items'] += $item
 }
 
 $content = [ordered]@{

@@ -215,6 +215,8 @@ Transmission Mount
 
 Transmission Oil Condition
 
+Transmission Oil Leak
+
 🔹 Braking System
 
 Front Brake Pads (% remaining)
