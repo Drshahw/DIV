@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-02-10T17:55:49",
+    "generatedAt": "2026-02-10T19:05:51",
     "source": "content.md"
   },
   "sections": [
@@ -116,14 +116,26 @@
               "photo": true
             },
             {
-              "key": "left_quarter_panel",
-              "label": "Left Quarter Panel",
+              "key": "left_front_quarter_panel",
+              "label": "Left Front Quarter Panel",
               "sublabel": "",
               "photo": true
             },
             {
-              "key": "right_quarter_panel",
-              "label": "Right Quarter Panel",
+              "key": "left_rear_quarter_panel",
+              "label": "Left Rear Quarter Panel",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "right_front_quarter_panel",
+              "label": "Right Front Quarter Panel",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "right_rear_quarter_panel",
+              "label": "Right Rear Quarter Panel",
               "sublabel": "",
               "photo": true
             },
@@ -224,14 +236,14 @@
           "note": "",
           "items": [
             {
-              "key": "windshield_crack_chip",
-              "label": "Windshield (Crack / Chip)",
+              "key": "windshield_front_crack_chip",
+              "label": "Windshield (Front) (Crack / Chip)",
               "sublabel": "",
               "photo": true
             },
             {
-              "key": "rear_glass",
-              "label": "Rear Glass",
+              "key": "windshield_rear_crack_chip",
+              "label": "Windshield (Rear) (Crack / Chip)",
               "sublabel": "",
               "photo": true
             },
@@ -349,6 +361,18 @@
               "label": "Wiper Switch",
               "sublabel": "",
               "photo": true
+            },
+            {
+              "key": "windows_switches",
+              "label": "Windows Switches",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "mirror_switches",
+              "label": "Mirror Switches",
+              "sublabel": "",
+              "photo": true
             }
           ]
         },
@@ -383,6 +407,25 @@
             {
               "key": "audio_system_speakers",
               "label": "Audio System (Speakers)",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "interior",
+      "title": "Interior",
+      "description": "",
+      "cards": [
+        {
+          "title": "Checklist",
+          "note": "",
+          "items": [
+            {
+              "key": "car_keys",
+              "label": "Car Keys",
               "sublabel": "",
               "photo": true
             }
@@ -473,12 +516,6 @@
       "key": "interior",
       "title": "Interior",
       "description": "",
-      "cards": []
-    },
-    {
-      "key": "interior",
-      "title": "Interior",
-      "description": "",
       "cards": [
         {
           "title": "Checklist",
@@ -487,24 +524,6 @@
             {
               "key": "overall_cleanliness",
               "label": "Overall Cleanliness",
-              "sublabel": "",
-              "photo": true
-            },
-            {
-              "key": "excellent",
-              "label": "Excellent",
-              "sublabel": "",
-              "photo": true
-            },
-            {
-              "key": "good",
-              "label": "Good",
-              "sublabel": "",
-              "photo": true
-            },
-            {
-              "key": "needs_cleaning",
-              "label": "Needs Cleaning",
               "sublabel": "",
               "photo": true
             }
@@ -582,8 +601,20 @@
               "photo": true
             },
             {
+              "key": "coolant_leaks_visual",
+              "label": "Coolant Leaks (Visual)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
               "key": "check_engine_light",
               "label": "Check Engine Light",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "engine_mount",
+              "label": "Engine Mount",
               "sublabel": "",
               "photo": true
             }
@@ -606,14 +637,14 @@
               "photo": true
             },
             {
-              "key": "clutch_operation_manual",
-              "label": "Clutch Operation (Manual)",
+              "key": "transmission_mount",
+              "label": "Transmission Mount",
               "sublabel": "",
               "photo": true
             },
             {
-              "key": "cvt_automatic_behavior",
-              "label": "CVT / Automatic Behavior",
+              "key": "transmission_oil_condition",
+              "label": "Transmission Oil Condition",
               "sublabel": "",
               "photo": true
             }
@@ -678,6 +709,24 @@
               "photo": true
             },
             {
+              "key": "upper_arms",
+              "label": "Upper Arms",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "lower_arms",
+              "label": "Lower Arms",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "link_rods",
+              "label": "Link Rods",
+              "sublabel": "",
+              "photo": true
+            },
+            {
               "key": "steering_free_play",
               "label": "Steering Free Play",
               "sublabel": "",
@@ -686,6 +735,12 @@
             {
               "key": "alignment_pull_left_right",
               "label": "Alignment Pull (Left / Right)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "steering_rack",
+              "label": "Steering Rack",
               "sublabel": "",
               "photo": true
             }
@@ -737,12 +792,6 @@
               "label": "AC Leaks (Visual / UV)",
               "sublabel": "",
               "photo": true
-            },
-            {
-              "key": "condenser_condition",
-              "label": "Condenser Condition",
-              "sublabel": "",
-              "photo": true
             }
           ]
         },
@@ -781,8 +830,8 @@
           "note": "",
           "items": [
             {
-              "key": "exhaust_noise",
-              "label": "Exhaust Noise",
+              "key": "exhaust_blockage",
+              "label": "Exhaust Blockage",
               "sublabel": "",
               "photo": true
             },
@@ -795,6 +844,36 @@
             {
               "key": "exhaust_leaks",
               "label": "Exhaust Leaks",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        },
+        {
+          "title": "Differential",
+          "note": "",
+          "items": [
+            {
+              "key": "differential_mount",
+              "label": "Differential Mount",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "front_differential_leak",
+              "label": "Front Differential Leak",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_differential_leak",
+              "label": "Rear Differential Leak",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "drive_shaft_bushes",
+              "label": "Drive Shaft Bushes",
               "sublabel": "",
               "photo": true
             }

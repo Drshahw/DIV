@@ -36,9 +36,13 @@ Left Rear Door
 
 Right Rear Door
 
-Left Quarter Panel
+Left Front Quarter Panel
 
-Right Quarter Panel
+Left Rear Quarter Panel
+
+Right Front Quarter Panel
+
+Right Rear Quarter Panel
 
 Roof
 
@@ -74,9 +78,9 @@ Tire Pressure (Visual / Measured)
 
 🔹 Glass, Mirrors & Wipers
 
-Windshield (Crack / Chip)
+Windshield (Front) (Crack / Chip)
 
-Rear Glass
+Windshield (Rear) (Crack / Chip)
 
 Side Windows
 
@@ -119,6 +123,10 @@ Indicator Switch
 
 Wiper Switch
 
+Windows Switches
+
+Mirror Switches
+
 🔹 Infotainment & Electronics
 
 Infotainment Screen
@@ -130,6 +138,10 @@ Bluetooth
 Apple CarPlay / Android Auto
 
 Audio System (Speakers)
+
+Roof Light / Interior Lights
+
+Car Keys
 
 🔹 Air Conditioning (User Experience only)
 
@@ -157,17 +169,9 @@ Front Door Compartments
 
 Rear Door Compartments
 
-Roof Light / Interior Lights
-
 🔹 Interior Cleanliness
 
 Overall Cleanliness
-
-Excellent
-
-Good
-
-Needs Cleaning
 
 3️⃣ MECHANICAL 
 
@@ -195,7 +199,11 @@ Idle Stability
 
 Engine Leaks (Visual)
 
+Coolant Leaks (Visual)
+
 Check Engine Light
+
+Engine Mount
 
 🔹 Transmission
 
@@ -203,9 +211,9 @@ Gear Shifting (Smooth / Delay / Jerky)
 
 Transmission Noise
 
-Clutch Operation (Manual)
+Transmission Mount
 
-CVT / Automatic Behavior
+Transmission Oil Condition
 
 🔹 Braking System
 
@@ -227,9 +235,17 @@ Rear Shocks
 
 Control Arms / Bushings
 
+Upper Arms
+
+Lower Arms
+
+Link Rods
+
 Steering Free Play
 
 Alignment Pull (Left / Right)
+
+Steering Rack
 
 🔹 Air Conditioning – Mechanical (خیلی مهم)
 
@@ -247,8 +263,6 @@ AC Electrical (Blower / Sensors)
 
 AC Leaks (Visual / UV)
 
-Condenser Condition
-
 🔹 Electrical & Battery
 
 Battery Health
@@ -261,9 +275,19 @@ Electrical Errors / Faults
 
 🔹 Exhaust & Emissions
 
-Exhaust Noise
+Exhaust Blockage
 
 Smoke (White / Black / Blue)
 
 Exhaust Leaks
+
+🔹 Differential
+
+Differential Mount
+
+Front Differential Leak
+
+Rear Differential Leak
+
+Drive Shaft Bushes
 
