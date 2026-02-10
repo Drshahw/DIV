@@ -287,6 +287,7 @@
     .leftRow{
       display:flex; gap:10px; align-items:center;
       min-width:0;
+      flex: 1 1 auto;
     }
     .name{
       font-weight:600;
@@ -299,12 +300,20 @@
     .subnote{font-size:12px;color:hsl(var(--muted-foreground))}
     .rightRow{
       display:flex; gap:8px; align-items:center;
-      flex-wrap:wrap; justify-content:flex-end;
+      flex-wrap:nowrap;
+      justify-content:flex-end;
+      flex: 0 0 auto;
     }
     .statusGroup{
       display:inline-flex;
       gap:8px;
       align-items:center;
+    }
+    .photoSpacer{
+      width: 96px;
+      height: 34px;
+      display:inline-block;
+      flex: 0 0 auto;
     }
     .statusBtn{
       width:34px;
@@ -339,7 +348,8 @@
       box-shadow: 0 14px 30px hsl(var(--rep) / 0.14);
     }
     .btnPhoto{
-      padding:8px 12px;
+      height:34px;
+      padding:0 12px;
       border-radius:12px;
       border:1px solid hsl(var(--border));
       background:hsl(var(--card));
@@ -348,6 +358,8 @@
       display:inline-flex; gap:8px; align-items:center;
       color:hsl(var(--card-foreground));
       transition: transform .10s ease, background .18s ease, border-color .18s ease;
+      flex: 0 0 auto;
+      min-width: 96px;
     }
     .btnPhoto:hover{ transform: translateY(-1px); border-color: hsl(var(--ring) / 0.25); }
     .btnPhoto span{opacity:.9}
@@ -634,6 +646,9 @@
                 '📷 ',
                 el('span', { text: 'Photos' }),
               ]));
+            } else {
+              // Keep status buttons aligned even when photo isn't available.
+              rightBits.push(el('span', { class: 'photoSpacer', 'aria-hidden': 'true' }));
             }
             const group = el('div', { class: 'statusGroup', 'data-status-group': it.key }, [
               el('button', { class: 'statusBtn ok', type: 'button', 'data-status-btn': 'ok', 'aria-label': 'OK', html: statusIcons.ok }),
