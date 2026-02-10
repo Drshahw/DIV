@@ -1,0 +1,806 @@
+{
+  "meta": {
+    "generatedAt": "2026-02-10T17:55:49",
+    "source": "content.md"
+  },
+  "sections": [
+    {
+      "key": "exterior",
+      "title": "Exterior",
+      "description": "",
+      "cards": [
+        {
+          "title": "Lights",
+          "note": "",
+          "items": [
+            {
+              "key": "headlights_low_high",
+              "label": "Headlights (Low / High)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "brake_lights",
+              "label": "Brake Lights",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "front_indicators_left_right",
+              "label": "Front Indicators (Left / Right)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_indicators_left_right",
+              "label": "Rear Indicators (Left / Right)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "reverse_lights",
+              "label": "Reverse Lights",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "parking_lights",
+              "label": "Parking Lights",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "fog_lights_front",
+              "label": "Fog Lights (Front)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "fog_lights_rear_if_applicable",
+              "label": "Fog Lights (Rear – if applicable)",
+              "sublabel": "",
+              "photo": false
+            }
+          ]
+        },
+        {
+          "title": "Body Panels & Paint",
+          "note": "",
+          "items": [
+            {
+              "key": "front_bumper",
+              "label": "Front Bumper",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_bumper",
+              "label": "Rear Bumper",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "bonnet_hood",
+              "label": "Bonnet (Hood)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "trunk_tailgate",
+              "label": "Trunk / Tailgate",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "left_front_door",
+              "label": "Left Front Door",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "right_front_door",
+              "label": "Right Front Door",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "left_rear_door",
+              "label": "Left Rear Door",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "right_rear_door",
+              "label": "Right Rear Door",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "left_quarter_panel",
+              "label": "Left Quarter Panel",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "right_quarter_panel",
+              "label": "Right Quarter Panel",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "roof",
+              "label": "Roof",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "sunroof_panoramic_roof",
+              "label": "Sunroof / Panoramic Roof",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "scratches",
+              "label": "Scratches",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "dents",
+              "label": "Dents",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "paint_fade",
+              "label": "Paint fade",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "repainted_panel",
+              "label": "Repainted panel",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        },
+        {
+          "title": "Wheels & Tires",
+          "note": "",
+          "items": [
+            {
+              "key": "front_left_tire_tread_condition",
+              "label": "Front Left Tire (Tread condition)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "front_right_tire",
+              "label": "Front Right Tire",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_left_tire",
+              "label": "Rear Left Tire",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_right_tire",
+              "label": "Rear Right Tire",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "spare_tire",
+              "label": "Spare Tire",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "front_rims_scratches_bent",
+              "label": "Front Rims (Scratches / Bent)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_rims",
+              "label": "Rear Rims",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "tire_pressure_visual_measured",
+              "label": "Tire Pressure (Visual / Measured)",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        },
+        {
+          "title": "Glass, Mirrors & Wipers",
+          "note": "",
+          "items": [
+            {
+              "key": "windshield_crack_chip",
+              "label": "Windshield (Crack / Chip)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_glass",
+              "label": "Rear Glass",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "side_windows",
+              "label": "Side Windows",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "side_mirrors_l_r",
+              "label": "Side Mirrors (L / R)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "front_wipers",
+              "label": "Front Wipers",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_wiper",
+              "label": "Rear Wiper",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "interior",
+      "title": "Interior",
+      "description": "تمرکز: راحتی، آپشن‌ها، تمیزی، حس راننده",
+      "cards": [
+        {
+          "title": "Seats & Upholstery",
+          "note": "",
+          "items": [
+            {
+              "key": "driver_seat",
+              "label": "Driver Seat",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "passenger_seat",
+              "label": "Passenger Seat",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_seats",
+              "label": "Rear Seats",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "seat_adjustment_manual_electric",
+              "label": "Seat Adjustment (Manual / Electric)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "seat_condition_tear_stain",
+              "label": "Seat Condition (Tear / Stain)",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        },
+        {
+          "title": "Dashboard & Controls",
+          "note": "",
+          "items": [
+            {
+              "key": "steering_wheel",
+              "label": "Steering Wheel",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "steering_wheel_buttons",
+              "label": "Steering Wheel Buttons",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "instrument_cluster",
+              "label": "Instrument Cluster",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "warning_lights_visible_none",
+              "label": "Warning Lights (Visible / None)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "gear_lever_knob",
+              "label": "Gear Lever / Knob",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "indicator_switch",
+              "label": "Indicator Switch",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "wiper_switch",
+              "label": "Wiper Switch",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        },
+        {
+          "title": "Infotainment & Electronics",
+          "note": "",
+          "items": [
+            {
+              "key": "infotainment_screen",
+              "label": "Infotainment Screen",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "touch_buttons",
+              "label": "Touch / Buttons",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "bluetooth",
+              "label": "Bluetooth",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "apple_carplay_android_auto",
+              "label": "Apple CarPlay / Android Auto",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "audio_system_speakers",
+              "label": "Audio System (Speakers)",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        },
+        {
+          "title": "Air Conditioning (User Experience only)",
+          "note": "⚠️ فنی نیست – فقط تجربه داخل کابین",
+          "items": [
+            {
+              "key": "ac_cooling_feeling_cold_weak",
+              "label": "AC Cooling Feeling (Cold / Weak)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "front_ac_vents_airflow",
+              "label": "Front AC Vents Airflow",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_ac_vents_airflow",
+              "label": "Rear AC Vents Airflow",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "ac_control_panel",
+              "label": "AC Control Panel",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "cabin_odor",
+              "label": "Cabin Odor",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "cabin_noise_from_ac",
+              "label": "Cabin Noise from AC",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "interior",
+      "title": "Interior",
+      "description": "",
+      "cards": [
+        {
+          "title": "Checklist",
+          "note": "",
+          "items": [
+            {
+              "key": "glove_box",
+              "label": "Glove Box",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "center_console",
+              "label": "Center Console",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "front_door_compartments",
+              "label": "Front Door Compartments",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_door_compartments",
+              "label": "Rear Door Compartments",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "interior",
+      "title": "Interior",
+      "description": "",
+      "cards": []
+    },
+    {
+      "key": "interior",
+      "title": "Interior",
+      "description": "",
+      "cards": [
+        {
+          "title": "Checklist",
+          "note": "",
+          "items": [
+            {
+              "key": "overall_cleanliness",
+              "label": "Overall Cleanliness",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "excellent",
+              "label": "Excellent",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "good",
+              "label": "Good",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "needs_cleaning",
+              "label": "Needs Cleaning",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "mechanical",
+      "title": "Mechanical",
+      "description": "تمرکز: سلامت واقعی خودرو (اینجا اعتماد ساخته می‌شود)",
+      "cards": [
+        {
+          "title": "Engine Bay – Fluids",
+          "note": "",
+          "items": [
+            {
+              "key": "engine_oil_level_condition",
+              "label": "Engine Oil (Level + Condition)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "coolant_level",
+              "label": "Coolant Level",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "brake_fluid_level",
+              "label": "Brake Fluid Level",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "power_steering_fluid_if_applicable",
+              "label": "Power Steering Fluid (if applicable)",
+              "sublabel": "",
+              "photo": false
+            },
+            {
+              "key": "washer_fluid",
+              "label": "Washer Fluid",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        },
+        {
+          "title": "Engine Performance",
+          "note": "",
+          "items": [
+            {
+              "key": "engine_noise",
+              "label": "Engine Noise",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "engine_vibration",
+              "label": "Engine Vibration",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "idle_stability",
+              "label": "Idle Stability",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "engine_leaks_visual",
+              "label": "Engine Leaks (Visual)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "check_engine_light",
+              "label": "Check Engine Light",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        },
+        {
+          "title": "Transmission",
+          "note": "",
+          "items": [
+            {
+              "key": "gear_shifting_smooth_delay_jerky",
+              "label": "Gear Shifting (Smooth / Delay / Jerky)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "transmission_noise",
+              "label": "Transmission Noise",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "clutch_operation_manual",
+              "label": "Clutch Operation (Manual)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "cvt_automatic_behavior",
+              "label": "CVT / Automatic Behavior",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        },
+        {
+          "title": "Braking System",
+          "note": "",
+          "items": [
+            {
+              "key": "front_brake_pads_remaining",
+              "label": "Front Brake Pads (% remaining)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_brake_pads",
+              "label": "Rear Brake Pads",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "brake_discs_condition",
+              "label": "Brake Discs Condition",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "brake_noise",
+              "label": "Brake Noise",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "brake_pedal_feel",
+              "label": "Brake Pedal Feel",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        },
+        {
+          "title": "Suspension & Steering",
+          "note": "",
+          "items": [
+            {
+              "key": "front_shocks",
+              "label": "Front Shocks",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "rear_shocks",
+              "label": "Rear Shocks",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "control_arms_bushings",
+              "label": "Control Arms / Bushings",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "steering_free_play",
+              "label": "Steering Free Play",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "alignment_pull_left_right",
+              "label": "Alignment Pull (Left / Right)",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "mechanical",
+      "title": "Mechanical",
+      "description": "",
+      "cards": [
+        {
+          "title": "Checklist",
+          "note": "",
+          "items": [
+            {
+              "key": "cooling_performance_measured_actual",
+              "label": "Cooling Performance (Measured / Actual)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "ac_compressor_operation",
+              "label": "AC Compressor Operation",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "compressor_noise",
+              "label": "Compressor Noise",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "refrigerant_gas_pressure",
+              "label": "Refrigerant Gas Pressure",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "ac_electrical_blower_sensors",
+              "label": "AC Electrical (Blower / Sensors)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "ac_leaks_visual_uv",
+              "label": "AC Leaks (Visual / UV)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "condenser_condition",
+              "label": "Condenser Condition",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        },
+        {
+          "title": "Electrical & Battery",
+          "note": "",
+          "items": [
+            {
+              "key": "battery_health",
+              "label": "Battery Health",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "alternator_charging",
+              "label": "Alternator Charging",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "starter_operation",
+              "label": "Starter Operation",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "electrical_errors_faults",
+              "label": "Electrical Errors / Faults",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        },
+        {
+          "title": "Exhaust & Emissions",
+          "note": "",
+          "items": [
+            {
+              "key": "exhaust_noise",
+              "label": "Exhaust Noise",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "smoke_white_black_blue",
+              "label": "Smoke (White / Black / Blue)",
+              "sublabel": "",
+              "photo": true
+            },
+            {
+              "key": "exhaust_leaks",
+              "label": "Exhaust Leaks",
+              "sublabel": "",
+              "photo": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

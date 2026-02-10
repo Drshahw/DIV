@@ -431,882 +431,13 @@
     <div class="grid">
       <!-- LEFT COLUMN -->
       <div id="col1">
-        <div class="card" data-section="mechanical">
-          <div class="cardHead">
-            <div class="cardTitle">Engine Bay — Fluids</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="engine_oil">
-            <div class="leftRow">
-              <div>
-                <div class="name">Engine Oil</div>
-                <div class="subnote">Level + condition</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <button class="btnPhoto" data-photo="engine_oil">📷 <span>Photos</span></button>
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="row" data-item="coolant_level">
-            <div class="leftRow">
-              <div>
-                <div class="name">Coolant Level</div>
-                <div class="subnote">Level</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <button class="btnPhoto" data-photo="coolant_level">📷 <span>Photos</span></button>
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="row" data-item="brake_fluid_level">
-            <div class="leftRow">
-              <div>
-                <div class="name">Brake Fluid Level</div>
-                <div class="subnote">Level</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <button class="btnPhoto" data-photo="brake_fluid_level">📷 <span>Photos</span></button>
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="row" data-item="power_steering_fluid">
-            <div class="leftRow">
-              <div>
-                <div class="name">Power Steering Fluid</div>
-                <div class="subnote">If applicable</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <button class="btnPhoto" data-photo="power_steering_fluid">📷 <span>Photos</span></button>
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="row" data-item="washer_fluid">
-            <div class="leftRow">
-              <div>
-                <div class="name">Washer Fluid</div>
-                <div class="subnote">Level</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <button class="btnPhoto" data-photo="washer_fluid">📷 <span>Photos</span></button>
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="hint">Tip: click status chip to change (OK → Attention → Needs Repair → Not Checked)</div>
-        </div>
-
-        <div class="card" data-section="mechanical">
-          <div class="cardHead">
-            <div class="cardTitle">Engine Performance</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="engine_noise">
-            <div class="leftRow"><div class="name">Engine Noise</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="engine_noise">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="engine_vibration">
-            <div class="leftRow"><div class="name">Engine Vibration</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="engine_vibration">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="idle_stability">
-            <div class="leftRow"><div class="name">Idle Stability</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="idle_stability">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="engine_leaks_visual">
-            <div class="leftRow"><div class="name">Engine Leaks (Visual)</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="engine_leaks_visual">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="check_engine_light">
-            <div class="leftRow">
-              <div>
-                <div class="name">Check Engine Light</div>
-                <div class="subnote">On / Off</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="check_engine_light">📷 <span>Photos</span></button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" data-section="mechanical">
-          <div class="cardHead">
-            <div class="cardTitle">Brakes</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="front_pads">
-            <div class="leftRow">
-              <div>
-                <div class="name">Front Brake Pads</div>
-                <div class="subnote">Remaining life</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <div class="miniBar" title="Remaining life"><i id="frontPadsBar"></i></div>
-              <span class="chip att" data-status>Attention</span>
-              <button class="btnPhoto" data-photo="front_pads">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="rear_pads">
-            <div class="leftRow">
-              <div>
-                <div class="name">Rear Brake Pads</div>
-                <div class="subnote">Remaining life</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="rear_pads">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="brake_noise">
-            <div class="leftRow">
-              <div>
-                <div class="name">Brake Noise</div>
-                <div class="subnote">Any abnormal sound</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="brake_noise">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="brake_discs_condition">
-            <div class="leftRow">
-              <div>
-                <div class="name">Brake Discs Condition</div>
-                <div class="subnote">Grooves / rust / wear</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="brake_discs_condition">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="brake_pedal_feel">
-            <div class="leftRow">
-              <div>
-                <div class="name">Brake Pedal Feel</div>
-                <div class="subnote">Soft / firm / vibration</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" data-section="exterior">
-          <div class="cardHead">
-            <div class="cardTitle">Body Panels &amp; Paint</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="front_bumper">
-            <div class="leftRow"><div class="name">Front Bumper</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span><button class="btnPhoto" data-photo="front_bumper">📷 <span>Photos</span></button></div>
-          </div>
-
-          <div class="row" data-item="rear_bumper">
-            <div class="leftRow"><div class="name">Rear Bumper</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span><button class="btnPhoto" data-photo="rear_bumper">📷 <span>Photos</span></button></div>
-          </div>
-
-          <div class="row" data-item="bonnet_hood">
-            <div class="leftRow"><div class="name">Bonnet (Hood)</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span><button class="btnPhoto" data-photo="bonnet_hood">📷 <span>Photos</span></button></div>
-          </div>
-
-          <div class="row" data-item="trunk_tailgate">
-            <div class="leftRow"><div class="name">Trunk / Tailgate</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span><button class="btnPhoto" data-photo="trunk_tailgate">📷 <span>Photos</span></button></div>
-          </div>
-
-          <div class="row" data-item="left_front_door">
-            <div class="leftRow"><div class="name">Left Front Door</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span><button class="btnPhoto" data-photo="left_front_door">📷 <span>Photos</span></button></div>
-          </div>
-
-          <div class="row" data-item="right_front_door">
-            <div class="leftRow"><div class="name">Right Front Door</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span><button class="btnPhoto" data-photo="right_front_door">📷 <span>Photos</span></button></div>
-          </div>
-
-          <div class="row" data-item="left_rear_door">
-            <div class="leftRow"><div class="name">Left Rear Door</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span><button class="btnPhoto" data-photo="left_rear_door">📷 <span>Photos</span></button></div>
-          </div>
-
-          <div class="row" data-item="right_rear_door">
-            <div class="leftRow"><div class="name">Right Rear Door</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span><button class="btnPhoto" data-photo="right_rear_door">📷 <span>Photos</span></button></div>
-          </div>
-
-          <div class="row" data-item="left_quarter_panel">
-            <div class="leftRow"><div class="name">Left Quarter Panel</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span><button class="btnPhoto" data-photo="left_quarter_panel">📷 <span>Photos</span></button></div>
-          </div>
-
-          <div class="row" data-item="right_quarter_panel">
-            <div class="leftRow"><div class="name">Right Quarter Panel</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span><button class="btnPhoto" data-photo="right_quarter_panel">📷 <span>Photos</span></button></div>
-          </div>
-
-          <div class="row" data-item="roof">
-            <div class="leftRow"><div class="name">Roof</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span><button class="btnPhoto" data-photo="roof">📷 <span>Photos</span></button></div>
-          </div>
-
-          <div class="row" data-item="sunroof">
-            <div class="leftRow"><div class="name">Sunroof / Panoramic Roof</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span><button class="btnPhoto" data-photo="sunroof">📷 <span>Photos</span></button></div>
-          </div>
-        </div>
+        <!-- Content rendered from content-data.js -->
       </div>
 
       <!-- MIDDLE COLUMN -->
       <div id="col2">
-        <div class="card" data-section="mechanical">
-          <div class="cardHead">
-            <div class="cardTitle">Transmission</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="gear_shifting">
-            <div class="leftRow">
-              <div>
-                <div class="name">Gear Shifting</div>
-                <div class="subnote">Smooth / Delay / Jerky</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="gear_shifting">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="transmission_noise">
-            <div class="leftRow"><div class="name">Transmission Noise</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="transmission_noise">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="clutch_operation">
-            <div class="leftRow">
-              <div>
-                <div class="name">Clutch Operation</div>
-                <div class="subnote">Manual</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="row" data-item="cvt_auto_behavior">
-            <div class="leftRow"><div class="name">CVT / Automatic Behavior</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" data-section="mechanical">
-          <div class="cardHead">
-            <div class="cardTitle">Air Conditioning — Mechanical</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="ac_cooling">
-            <div class="leftRow">
-              <div>
-                <div class="name">Cooling Performance</div>
-                <div class="subnote">Cold / Weak / Not cooling</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip att" data-status>Attention</span>
-              <button class="btnPhoto" data-photo="ac_cooling">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="ac_compressor_operation">
-            <div class="leftRow">
-              <div>
-                <div class="name">AC Compressor Operation</div>
-                <div class="subnote">Engagement</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="ac_compressor_operation">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="ac_compressor_noise">
-            <div class="leftRow">
-              <div>
-                <div class="name">Compressor Noise</div>
-                <div class="subnote">Listen during operation</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="row" data-item="ac_gas_pressure">
-            <div class="leftRow">
-              <div>
-                <div class="name">Refrigerant Gas Pressure</div>
-                <div class="subnote">Measured</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip rep" data-status>Needs Repair</span>
-              <button class="btnPhoto" data-photo="ac_gas_pressure">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="ac_electrical">
-            <div class="leftRow">
-              <div>
-                <div class="name">AC Electrical</div>
-                <div class="subnote">Blower / sensors</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="row" data-item="ac_leaks_visual_uv">
-            <div class="leftRow">
-              <div>
-                <div class="name">AC Leaks</div>
-                <div class="subnote">Visual / UV</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="ac_leaks_visual_uv">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="ac_condenser_condition">
-            <div class="leftRow">
-              <div>
-                <div class="name">Condenser Condition</div>
-                <div class="subnote">Damage / blockage</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="ac_condenser_condition">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="ac_notes_inline">
-            <div class="leftRow">
-              <div>
-                <div class="name">Quick Note</div>
-                <div class="subnote">Short tech note for AC</div>
-              </div>
-            </div>
-            <div class="rightRow" style="flex:1">
-              <input class="input" placeholder="e.g., Needs recharge / suspected leak" id="acInlineNote" />
-            </div>
-          </div>
-        </div>
-
-        <div class="card" data-section="mechanical">
-          <div class="cardHead">
-            <div class="cardTitle">Suspension &amp; Steering</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="front_shocks">
-            <div class="leftRow"><div class="name">Front Shocks</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="rear_shocks">
-            <div class="leftRow"><div class="name">Rear Shocks</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="control_arms_bushings">
-            <div class="leftRow"><div class="name">Control Arms / Bushings</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="steering_free_play">
-            <div class="leftRow"><div class="name">Steering Free Play</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="alignment_pull">
-            <div class="leftRow"><div class="name">Alignment Pull (Left / Right)</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-        </div>
-
-        <div class="card" data-section="mechanical">
-          <div class="cardHead">
-            <div class="cardTitle">Electrical &amp; Battery</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="battery_health">
-            <div class="leftRow"><div class="name">Battery Health</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="alternator_charging">
-            <div class="leftRow"><div class="name">Alternator Charging</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="starter_operation">
-            <div class="leftRow"><div class="name">Starter Operation</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="electrical_faults">
-            <div class="leftRow"><div class="name">Electrical Errors / Faults</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-        </div>
-
-        <div class="card" data-section="mechanical">
-          <div class="cardHead">
-            <div class="cardTitle">Exhaust &amp; Emissions</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="exhaust_noise">
-            <div class="leftRow"><div class="name">Exhaust Noise</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="smoke_color">
-            <div class="leftRow"><div class="name">Smoke (White / Black / Blue)</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="exhaust_leaks">
-            <div class="leftRow"><div class="name">Exhaust Leaks</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-        </div>
-
-        <div class="card" data-section="exterior">
-          <div class="cardHead">
-            <div class="cardTitle">Exterior — Lights</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="headlights_low_high">
-            <div class="leftRow"><div class="name">Headlights (Low / High)</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="headlights_low_high">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="brake_lights">
-            <div class="leftRow"><div class="name">Brake Lights</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="brake_lights">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="front_indicators_lr">
-            <div class="leftRow"><div class="name">Front Indicators (Left / Right)</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="front_indicators_lr">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="rear_indicators_lr">
-            <div class="leftRow"><div class="name">Rear Indicators (Left / Right)</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="rear_indicators_lr">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="reverse_lights">
-            <div class="leftRow"><div class="name">Reverse Lights</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="reverse_lights">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="parking_lights">
-            <div class="leftRow"><div class="name">Parking Lights</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="parking_lights">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="fog_lights_front">
-            <div class="leftRow"><div class="name">Fog Lights (Front)</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="fog_lights_front">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="fog_lights_rear">
-            <div class="leftRow"><div class="name">Fog Lights (Rear, if applicable)</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="fog_lights_rear">📷 <span>Photos</span></button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" data-section="exterior">
-          <div class="cardHead">
-            <div class="cardTitle">Wheels &amp; Tires</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="tire_front_left">
-            <div class="leftRow">
-              <div>
-                <div class="name">Front Left Tire</div>
-                <div class="subnote">Tread condition</div>
-              </div>
-            </div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="tire_front_left">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="tire_front_right">
-            <div class="leftRow"><div class="name">Front Right Tire</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="tire_front_right">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="tire_rear_left">
-            <div class="leftRow"><div class="name">Rear Left Tire</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="tire_rear_left">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="tire_rear_right">
-            <div class="leftRow"><div class="name">Rear Right Tire</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="tire_rear_right">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="spare_tire">
-            <div class="leftRow"><div class="name">Spare Tire</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="row" data-item="front_rims">
-            <div class="leftRow"><div class="name">Front Rims (Scratches / Bent)</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="front_rims">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="rear_rims">
-            <div class="leftRow"><div class="name">Rear Rims</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="rear_rims">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="tire_pressure">
-            <div class="leftRow"><div class="name">Tire Pressure (Visual / Measured)</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" data-section="exterior">
-          <div class="cardHead">
-            <div class="cardTitle">Glass, Mirrors &amp; Wipers</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="windshield">
-            <div class="leftRow"><div class="name">Windshield (Crack / Chip)</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="windshield">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="rear_glass">
-            <div class="leftRow"><div class="name">Rear Glass</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="row" data-item="side_windows">
-            <div class="leftRow"><div class="name">Side Windows</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="row" data-item="side_mirrors">
-            <div class="leftRow"><div class="name">Side Mirrors (L / R)</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="row" data-item="front_wipers">
-            <div class="leftRow"><div class="name">Front Wipers</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-
-          <div class="row" data-item="rear_wiper">
-            <div class="leftRow"><div class="name">Rear Wiper</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" data-section="interior">
-          <div class="cardHead">
-            <div class="cardTitle">Seats &amp; Upholstery</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="driver_seat">
-            <div class="leftRow"><div class="name">Driver Seat</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="driver_seat">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="passenger_seat">
-            <div class="leftRow"><div class="name">Passenger Seat</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="passenger_seat">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="rear_seats">
-            <div class="leftRow"><div class="name">Rear Seats</div></div>
-            <div class="rightRow">
-              <span class="chip neutral" data-status>Not Checked</span>
-              <button class="btnPhoto" data-photo="rear_seats">📷 <span>Photos</span></button>
-            </div>
-          </div>
-
-          <div class="row" data-item="seat_adjustment">
-            <div class="leftRow"><div class="name">Seat Adjustment (Manual / Electric)</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-
-          <div class="row" data-item="seat_condition">
-            <div class="leftRow"><div class="name">Seat Condition (Tear / Stain)</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-        </div>
-
-        <div class="card" data-section="interior">
-          <div class="cardHead">
-            <div class="cardTitle">Dashboard &amp; Controls</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="steering_wheel">
-            <div class="leftRow"><div class="name">Steering Wheel</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="steering_wheel_buttons">
-            <div class="leftRow"><div class="name">Steering Wheel Buttons</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="instrument_cluster">
-            <div class="leftRow"><div class="name">Instrument Cluster</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="warning_lights">
-            <div class="leftRow"><div class="name">Warning Lights (Visible / None)</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="gear_lever_knob">
-            <div class="leftRow"><div class="name">Gear Lever / Knob</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="indicator_switch">
-            <div class="leftRow"><div class="name">Indicator Switch</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="wiper_switch">
-            <div class="leftRow"><div class="name">Wiper Switch</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-        </div>
-
-        <div class="card" data-section="interior">
-          <div class="cardHead">
-            <div class="cardTitle">Infotainment &amp; Electronics</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="infotainment_screen">
-            <div class="leftRow"><div class="name">Infotainment Screen</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="touch_buttons">
-            <div class="leftRow"><div class="name">Touch / Buttons</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="bluetooth">
-            <div class="leftRow"><div class="name">Bluetooth</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="carplay_androidauto">
-            <div class="leftRow"><div class="name">Apple CarPlay / Android Auto</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="audio_system_speakers">
-            <div class="leftRow"><div class="name">Audio System (Speakers)</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-        </div>
-
-        <div class="card" data-section="interior">
-          <div class="cardHead">
-            <div class="cardTitle">Air Conditioning — Cabin Experience</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="ac_cooling_feeling">
-            <div class="leftRow"><div class="name">AC Cooling Feeling (Cold / Weak)</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="front_ac_vents_airflow">
-            <div class="leftRow"><div class="name">Front AC Vents Airflow</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="rear_ac_vents_airflow">
-            <div class="leftRow"><div class="name">Rear AC Vents Airflow</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="ac_control_panel">
-            <div class="leftRow"><div class="name">AC Control Panel</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="cabin_odor">
-            <div class="leftRow"><div class="name">Cabin Odor</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="cabin_noise_from_ac">
-            <div class="leftRow"><div class="name">Cabin Noise from AC</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-        </div>
-
-        <div class="card" data-section="interior">
-          <div class="cardHead">
-            <div class="cardTitle">Interior Storage &amp; Details</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="glove_box">
-            <div class="leftRow"><div class="name">Glove Box</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="center_console">
-            <div class="leftRow"><div class="name">Center Console</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="front_door_compartments">
-            <div class="leftRow"><div class="name">Front Door Compartments</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="rear_door_compartments">
-            <div class="leftRow"><div class="name">Rear Door Compartments</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-          <div class="row" data-item="interior_lights">
-            <div class="leftRow"><div class="name">Roof Light / Interior Lights</div></div>
-            <div class="rightRow"><span class="chip neutral" data-status>Not Checked</span></div>
-          </div>
-        </div>
-
-        <div class="card" data-section="interior">
-          <div class="cardHead">
-            <div class="cardTitle">Interior Cleanliness</div>
-            <button class="kebab" title="More">⋯</button>
-          </div>
-
-          <div class="row" data-item="overall_cleanliness">
-            <div class="leftRow"><div class="name">Overall Cleanliness</div></div>
-            <div class="rightRow" style="flex:1">
-              <select class="select" id="overallCleanliness" aria-label="Overall Cleanliness">
-                <option value="not_checked">Not Checked</option>
-                <option value="excellent">Excellent</option>
-                <option value="good">Good</option>
-                <option value="needs_cleaning">Needs Cleaning</option>
-              </select>
-            </div>
-          </div>
-          <div class="hint">Cleanliness selection does not affect progress counters (demo).</div>
-        </div>
+        <!-- Content rendered from content-data.js -->
       </div>
-
       <!-- NOTES PANEL -->
       <div class="card notesPanel" id="notesPanel">
         <div class="cardHead">
@@ -1350,106 +481,133 @@
 
   <div class="toast" id="toast"></div>
 
+  <script src="content-data.js"></script>
   <script>
-    // ---- Helpers
+    // Data-driven rendering: edit content.md -> run scripts/generate-dvi-content.ps1
+    // -> UI renders from content-data.js (no manual HTML duplication).
+
     const toast = (msg) => {
       const el = document.getElementById('toast');
       el.textContent = msg;
       el.style.display = 'block';
       clearTimeout(window.__t);
-      window.__t = setTimeout(()=> el.style.display='none', 2500);
+      window.__t = setTimeout(() => (el.style.display = 'none'), 2500);
     };
 
-    // status cycle: OK -> Attention -> Needs Repair -> Not Checked -> OK ...
-    const cycle = (chip) => {
+    const cycleStatus = (chip) => {
       const txt = chip.textContent.trim().toLowerCase();
       const set = (cls, label) => {
         chip.className = 'chip ' + cls;
         chip.textContent = label;
       };
 
+      // OK -> Attention -> Needs Repair -> Not Checked -> OK ...
       if (txt === 'ok') return set('att', 'Attention');
       if (txt === 'attention') return set('rep', 'Needs Repair');
       if (txt === 'needs repair') return set('neutral', 'Not Checked');
       if (txt === 'not checked') return set('ok', 'OK');
-      // fallback
       return set('ok', 'OK');
     };
 
-    // ---- Bind status chips
-    document.querySelectorAll('[data-status]').forEach(chip => {
-      chip.addEventListener('click', () => {
-        cycle(chip);
-        recalc();
+    const el = (tag, attrs = {}, children = []) => {
+      const n = document.createElement(tag);
+      Object.entries(attrs).forEach(([k, v]) => {
+        if (v === null || v === undefined) return;
+        if (k === 'class') n.className = v;
+        else if (k === 'text') n.textContent = v;
+        else if (k.startsWith('data-')) n.setAttribute(k, v);
+        else if (k === 'html') n.innerHTML = v;
+        else n.setAttribute(k, v);
       });
-    });
+      children.forEach((c) => n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c));
+      return n;
+    };
 
-    // ---- Photos demo
-    document.querySelectorAll('[data-photo]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        toast('Photos modal placeholder — connect to upload/gallery later.');
+    const renderContent = (content) => {
+      const col1 = document.getElementById('col1');
+      const col2 = document.getElementById('col2');
+      if (!col1 || !col2) return;
+
+      col1.replaceChildren();
+      col2.replaceChildren();
+
+      const sections = (content && content.sections) ? content.sections : [];
+      let flip = false;
+
+      sections.forEach((sec) => {
+        (sec.cards || []).forEach((card) => {
+          const cardEl = el('div', { class: 'card', 'data-section': sec.key });
+          const head = el('div', { class: 'cardHead' }, [
+            el('div', { class: 'cardTitle', text: card.title || 'Checklist' }),
+            el('button', { class: 'kebab', title: 'More', type: 'button', text: '⋯' }),
+          ]);
+          cardEl.appendChild(head);
+
+          (card.items || []).forEach((it) => {
+            const leftBits = [];
+            const nameWrap = el('div', {}, [
+              el('div', { class: 'name', text: it.label || 'Item' }),
+              it.sublabel ? el('div', { class: 'subnote', text: it.sublabel }) : null,
+            ].filter(Boolean));
+            leftBits.push(nameWrap);
+
+            const rightBits = [];
+            if (it.photo) {
+              rightBits.push(el('button', { class: 'btnPhoto', type: 'button', 'data-photo': it.key }, [
+                '📷 ',
+                el('span', { text: 'Photos' }),
+              ]));
+            }
+            rightBits.push(el('span', { class: 'chip neutral', 'data-status': '1', text: 'Not Checked' }));
+
+            const row = el('div', { class: 'row', 'data-item': it.key }, [
+              el('div', { class: 'leftRow' }, leftBits),
+              el('div', { class: 'rightRow' }, rightBits),
+            ]);
+
+            cardEl.appendChild(row);
+          });
+
+          if (card.note) cardEl.appendChild(el('div', { class: 'hint', text: card.note }));
+
+          (flip ? col2 : col1).appendChild(cardEl);
+          flip = !flip;
+        });
       });
-    });
+    };
 
-    // ---- Tabs show/hide sections
-    const tabs = document.querySelectorAll('.tab');
-    const sections = document.querySelectorAll('[data-section]');
     const showTab = (key) => {
-      tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === key));
-      sections.forEach(s => s.classList.toggle('hidden', s.dataset.section !== key));
+      document.querySelectorAll('.tab').forEach((t) => {
+        t.classList.toggle('active', t.dataset.tab === key);
+      });
+      document.querySelectorAll('.card[data-section]').forEach((c) => {
+        c.classList.toggle('hidden', c.dataset.section !== key);
+      });
     };
-    tabs.forEach(t => t.addEventListener('click', () => showTab(t.dataset.tab)));
 
-    // ---- Demo: front pads bar
-    const setPadPct = (pct) => {
-      const bar = document.getElementById('frontPadsBar');
-      bar.style.width = Math.max(0, Math.min(100, pct)) + '%';
-      bar.style.background = pct <= 25 ? 'hsl(var(--rep))' : (pct <= 50 ? 'hsl(var(--att))' : 'hsl(var(--muted-foreground))');
-    };
-    setPadPct(20);
-
-    // ---- Notes actions
-    document.getElementById('saveNotes').addEventListener('click', () => {
-      toast('Notes saved (demo).');
-    });
-
-    document.getElementById('submitBtn').addEventListener('click', () => {
-      toast('Submitted (demo). You can validate “Not Checked” items before submit.');
-    });
-
-    document.getElementById('saveBtn').addEventListener('click', () => {
-      toast('Saved (demo).');
-    });
-
-    // ---- Recalc counters & tab completion
     const statusValue = (chip) => chip.textContent.trim().toLowerCase();
 
     const recalc = () => {
       const chips = Array.from(document.querySelectorAll('[data-status]'));
-
-      let ok=0, att=0, rep=0, checked=0;
-      chips.forEach(c=>{
+      let ok = 0, att = 0, rep = 0;
+      chips.forEach((c) => {
         const v = statusValue(c);
-        if (v === 'ok') { ok++; checked++; }
-        else if (v === 'attention') { att++; checked++; }
-        else if (v === 'needs repair') { rep++; checked++; }
-        else if (v === 'not checked') { /* ignore */ }
-        else { /* ignore */ }
+        if (v === 'ok') ok++;
+        else if (v === 'attention') att++;
+        else if (v === 'needs repair') rep++;
       });
 
       document.getElementById('okCount').textContent = ok;
       document.getElementById('attCount').textContent = att;
       document.getElementById('repCount').textContent = rep;
 
-      // per-section completion
-      const sectionStats = { exterior:{ok:0,total:0,checked:0},
-                             interior:{ok:0,total:0,checked:0},
-                             mechanical:{ok:0,total:0,checked:0} };
+      const sectionStats = { exterior: { ok: 0, total: 0, checked: 0 }, interior: { ok: 0, total: 0, checked: 0 }, mechanical: { ok: 0, total: 0, checked: 0 } };
 
-      sections.forEach(sec=>{
-        const key = sec.dataset.section;
-        const secChips = Array.from(sec.querySelectorAll('[data-status]'));
-        secChips.forEach(c=>{
+      document.querySelectorAll('.card[data-section]').forEach((card) => {
+        const key = card.dataset.section;
+        const secChips = Array.from(card.querySelectorAll('[data-status]'));
+        secChips.forEach((c) => {
+          if (!sectionStats[key]) return;
           sectionStats[key].total++;
           const v = statusValue(c);
           if (v !== 'not checked') sectionStats[key].checked++;
@@ -1457,7 +615,7 @@
         });
       });
 
-      const setTab = (key, pctEl, barEl, okEl) => {
+      const setTabBar = (key, pctEl, barEl, okEl) => {
         const st = sectionStats[key];
         const pct = st.total ? Math.round((st.checked / st.total) * 100) : 0;
         document.getElementById(pctEl).textContent = pct + '%';
@@ -1468,11 +626,10 @@
         bar.style.background = pct >= 90 ? 'hsl(var(--ok))' : (pct >= 50 ? 'hsl(var(--att))' : 'hsl(var(--muted-foreground))');
       };
 
-      setTab('exterior','exPct','exBar','exOk');
-      setTab('interior','inPct','inBar','inOk');
-      setTab('mechanical','mePct','meBar','meOk');
+      setTabBar('exterior', 'exPct', 'exBar', 'exOk');
+      setTabBar('interior', 'inPct', 'inBar', 'inOk');
+      setTabBar('mechanical', 'mePct', 'meBar', 'meOk');
 
-      // Auto customer summary
       const summary = [];
       if (rep) summary.push(`${rep} urgent repair`);
       if (att) summary.push(`${att} need attention`);
@@ -1480,11 +637,46 @@
       document.getElementById('customerSummary').value = summary.join(' • ');
     };
 
-    recalc();
+    const bindInteractions = () => {
+      document.querySelectorAll('[data-status]').forEach((chip) => {
+        chip.addEventListener('click', () => {
+          cycleStatus(chip);
+          recalc();
+        });
+      });
 
-    // show default tab (mechanical as in your screenshot)
+      document.querySelectorAll('[data-photo]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          toast('Photos modal placeholder — connect to upload/gallery later.');
+        });
+      });
+
+      document.querySelectorAll('.tab').forEach((t) => {
+        t.addEventListener('click', () => showTab(t.dataset.tab));
+      });
+
+      document.getElementById('saveNotes').addEventListener('click', () => toast('Notes saved (demo).'));
+      document.getElementById('submitBtn').addEventListener('click', () => toast('Submitted (demo). You can validate “Not Checked” items before submit.'));
+      document.getElementById('saveBtn').addEventListener('click', () => toast('Saved (demo).'));
+    };
+
+    const setPadPct = (pct) => {
+      const bar = document.getElementById('frontPadsBar');
+      if (!bar) return;
+      bar.style.width = Math.max(0, Math.min(100, pct)) + '%';
+      bar.style.background = pct <= 25 ? 'hsl(var(--rep))' : (pct <= 50 ? 'hsl(var(--att))' : 'hsl(var(--muted-foreground))');
+    };
+
+    // --- boot
+    renderContent(window.DVI_CONTENT);
+    bindInteractions();
+    recalc();
     showTab('mechanical');
+    setPadPct(20);
   </script>
 </body>
 </html>
+
+
+
 
